@@ -3,9 +3,7 @@
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
 
-=======
 name: 'northwind_rawdata'
->>>>>>> fd901775bf9eec6b567d08f1114b7f72d2efa39d
 version: '1.0.0'
 config-version: 2
 
@@ -36,13 +34,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   northwind_rawdata:
-    # Persists documentation of tables and columns to the DW Metadata
+    # Persists documentation of tables and columns to the DW metadata
     +persist_docs:
         relation: true
         columns: true
       # Applies to all files under models/example/
-      example:
         staging:
           materialized: ephemeral
         marts:
-            materialized: table
+          materialized: table
+
