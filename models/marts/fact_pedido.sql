@@ -22,10 +22,10 @@ transportadores as (
 
 juntar_chaves as (
     select
-        clientes.sk_cliente, --chave auto-incremental
+        clientes.sk_cliente,
         id_pedido,
-        funcionarios.id_funcionario, --preciso trocar por sk
-        transportadores.id_transportador, --preciso trocar por sk
+        funcionarios.sk_funcionario,
+        transportadores.sk_transportador,
         data_pedido,
         regiao_entrega,
         data_expedicao,

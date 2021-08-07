@@ -1,5 +1,6 @@
 with funcionarios as (
     select 
+    row_number() over (order by employee_id) as sk_funcionario,
     country as pais,
     city as cidade,
     postal_code as cep,

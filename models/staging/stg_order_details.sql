@@ -3,7 +3,8 @@ with funcionarios as (
     product_id as id_produto,
     discount as desconto,
     unit_price as preco_unitario,
-    quantity as quantidade
+    quantity as quantidade,
+    order_id as id_pedido
     from {{ source('northwind_rawdata', 'order_details')}}
 )
 
