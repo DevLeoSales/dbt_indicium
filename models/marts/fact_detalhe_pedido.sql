@@ -8,18 +8,23 @@ fornecedores as (
 ),
 
 pedidos as (
-    select *
-    from {{ref('stg_order_details')}}
+    select 
+    id_pedido,
+    sum(quantidade) as quantitade_pedido,
+    sum(detalhes_pedido.preco_unitario*(1-detalhes_pedido.desconto)*detalhes_pedido.quantidade) as valor_pedido,
+    count(*) as itens_no_pedido
+    from {{ref('stg_order_details')}} as detalhes_pedido
+    group by id_pedido
 ),
 
 detalhe_pedido as (
-    select 
+    select
     produtos.nome_produto,
     produtos.id_produto,
-    pedidos.desconto,
-    pedidos.preco_unitario,
-    pedidos.quantidade,
     pedidos.id_pedido,
+    pedidos.quantitade_pedido,
+    pedidos.valor_pedido,
+    pedidos.itens_no_pedido,
     quantidade_por_unidade,
     fornecedores.nome_fornecedor,
     pais,
