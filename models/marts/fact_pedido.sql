@@ -22,10 +22,11 @@ transportadores as (
 
 juntar_chaves as (
     select
-        clientes.sk_cliente,
+        clientes.empresa,
         id_pedido,
-        funcionarios.sk_funcionario,
-        transportadores.sk_transportador,
+        funcionarios.nome as nome_funcionario,
+        funcionarios.sobrenome as sobrenome_funcionario,
+        transportadores.nome_transportadora as transportadora,
         data_pedido,
         regiao_entrega,
         data_expedicao,
